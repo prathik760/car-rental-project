@@ -72,22 +72,21 @@ const MyBookings = () => {
 
     const { id: order_id, amount } = res.data;
 
-    if (!window.Razorpay) {
-      toast.error('Razorpay SDK not loaded');
+    if (!window.Razorpay || !order_id || !amount) {
+      toast.error('Payment configuration error');
       return;
     }
 
     const options = {
-      key: "rzp_test_6rNnJqCLji7n9O", // ✅ Use your Razorpay test key
-      amount: amount, // Already in paise
+      key: "rzp_test_6rNnJqCLji7n9O",
+      amount: amount,
       currency: "INR",
       name: "Car Rental",
       description: `Booking: ${booking.carName}`,
       order_id,
       handler: function (response) {
-        toast.success("Payment successful!");
-        console.log("✅ Payment ID:", response.razorpay_payment_id);
-        console.log("✅ Order ID:", response.razorpay_order_id);
+        console.log("✅ Payment Success Response:", response);
+        toast.success("✅ Payment successful!");
       },
       prefill: {
         name: booking.user?.name || "Guest User",
@@ -96,13 +95,19 @@ const MyBookings = () => {
       theme: {
         color: "#3399cc",
       },
+      modal: {
+        ondismiss: function () {
+          console.log("❌ Razorpay modal dismissed or payment failed.");
+          toast.error("❌ Payment cancelled or failed.");
+        },
+      },
     };
 
     const razorpay = new window.Razorpay(options);
     razorpay.open();
   } catch (error) {
-    toast.error("Payment failed");
     console.error("❌ Payment Error:", error?.response?.data || error.message);
+    toast.error("❌ Payment failed due to server error");
   }
 };
 
