@@ -11,7 +11,11 @@ const app = express();
 const PORT = process.env.PORT || 2000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://car-rental-ah1c.onrender.com'], // allow local + deployed frontend
+  credentials: true, // optional, only if you're using cookies or sessions
+}));
+
 app.use(express.json());
 app.use('/api/user', router);
 app.use('/api/bookings', bookingRoutes);
