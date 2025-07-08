@@ -21,7 +21,7 @@ const MyBookings = () => {
     if (!token) return; // ✅ Skip API call if no token
 
     try {
-      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/bookings/mybookings`, {
+      const res = await axios.get(`https://car-rental-ah1c.onrender.com/api/bookings/mybookings`, {
 
         headers: {
           Authorization: `Bearer ${token}`,
@@ -54,7 +54,7 @@ const MyBookings = () => {
     if (!confirmCancel) return;
 
     try {
-     await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/bookings/${id}`, {
+     await axios.delete(`https://car-rental-ah1c.onrender.com/api/bookings/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -70,7 +70,7 @@ const MyBookings = () => {
 
  const handlePayNow = async (booking) => {
   try {
-    const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/payment/create-order`, {
+    const res = await axios.post(`https://car-rental-ah1c.onrender.com/api/payment/create-order`, {
       amount: booking.price,
     });
 

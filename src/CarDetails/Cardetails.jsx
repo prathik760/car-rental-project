@@ -234,7 +234,7 @@ const CarDetail = () => {
       const cleanedPrice = car.price.replace('$', '').replace('/day', '');
 
       const res = await axios.post(
-  `${import.meta.env.VITE_API_BASE_URL}/api/bookings`,
+  `https://car-rental-ah1c.onrender.com/api/bookings`,
         {
           carName: car.name,
           carImage: car.image,
