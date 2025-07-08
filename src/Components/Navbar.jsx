@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Navbar.css';
 import LoginPopup from './LoginModal';
 import { useAuth } from '../AuthContext/Authcontext';
-import logo from '../assets/car images/logo2.png'
+import logo from '../assets/car-images/logo2.png'
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);

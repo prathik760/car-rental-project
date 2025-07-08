@@ -2,18 +2,18 @@ import React, { useState,useEffect} from 'react';
 import './AvailableCars.css';
 import { FaUserFriends, FaGasPump, FaCogs, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import audi from '../assets/car images/a6.jpg'
-import benz from '../assets/car images/mer.png'
-import creta from '../assets/car images/creta.jpg'
-import fortuner from '../assets/car images/toyota.jpg'
-import honda from '../assets/car images/city.jpg'
-import jeep from '../assets/car images/jeep.jpg'
-import kia from '../assets/car images/kia.jpg'
-import mahindra from '../assets/car images/xuv.jpg'
-import mg from '../assets/car images/mg.png'
-import skoda from '../assets/car images/skoda.png'
-import volkswagen from '../assets/car images/volkswagen.jpg'
-import bmw from '../assets/car images/bmw.jpg'
+import audi from '../assets/car-images/a6.jpg'
+import benz from '../assets/car-images/mer.png'
+import creta from '../assets/car-images/creta.jpg'
+import fortuner from '../assets/car-images/toyota.jpg'
+import honda from '../assets/car-images/city.jpg'
+import jeep from '../assets/car-images/jeep.jpg'
+import kia from '../assets/car-images/kia.jpg'
+import mahindra from '../assets/car-images/xuv.jpg'
+import mg from '../assets/car-images/mg.png'
+import skoda from '../assets/car-images/skoda.png'
+import volkswagen from '../assets/car-images/volkswagen.jpg'
+import bmw from '../assets/car-images/bmw.jpg'
 const carList = [
   {
     name: 'Audi A6',

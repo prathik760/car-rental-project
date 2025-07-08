@@ -1,7 +1,7 @@
 import React from 'react';
 import './Calltoaction.css';
 import { FaArrowRight } from 'react-icons/fa';
-import volkswagen from '../assets/car images/Volkswagen.jpg'
+import volkswagen from '../assets/car-images/Volkswagen.jpg'
 
 const CallToAction = () => {
   return (

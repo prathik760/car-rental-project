@@ -2,9 +2,9 @@ import React from 'react';
 import './Feature.css';
 import { FaUserFriends, FaGasPump, FaCogs, FaMapMarkerAlt, FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import audi from '../assets/car images/a6.jpg'
-import bmw from '../assets/car images/bmw.jpg'
-import fortuner from '../assets/car images/toyota.jpg'
+import audi from '../assets/car-images/a6.jpg'
+import bmw from '../assets/car-images/bmw.jpg'
+import fortuner from '../assets/car-images/toyota.jpg'
 const cars = [
   {
     name: 'Audi A6',

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './HeroSection.css';
 import { FaSearch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import audi from '../assets/car images/bnww.png'
+import audi from '../assets/car-images/bnww.png'
 
 const Hero = () => {
   const [location, setLocation] = useState('');

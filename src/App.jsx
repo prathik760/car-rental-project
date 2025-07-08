@@ -10,7 +10,7 @@ import TestimonialSection from './Components/Testimonial';
 import SubscribeSection from './Components/Subcription';
 import Footer from './Components/Footer';
 import CarDetail from './CarDetails/Cardetails';
-import AvailableCars from './AvilableCars/Availabecars';
+import AvailableCars from './AvilableCars/AvailableCars';
 import MyBookings from './Bookings/Mybookings';
 
 // Admin Dashboard (Single Page with Tabs)
