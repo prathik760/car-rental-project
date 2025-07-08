@@ -1,33 +1,38 @@
 // routes/paymentRoutes.js
 import express from 'express';
 import Razorpay from 'razorpay';
-import crypto from 'crypto';
 
 const router = express.Router();
 
+// ✅ Use test keys directly for now
 const razorpay = new Razorpay({
-  key_id: "rzp_test_6rNnJqCLji7n9O",
-  key_secret: "jDKaZmxoTeORHKFozvZglOtI",
+  key_id: 'rzp_test_6rNnJqCLji7n9O',
+  key_secret: 'jDKaZmxoTeORHKFozvZglOtI',
 });
 
-// Create order
+// ✅ Create Razorpay Order
 router.post('/create-order', async (req, res) => {
   const { amount } = req.body;
 
+  if (!amount || isNaN(amount)) {
+    return res.status(400).json({ message: 'Invalid or missing amount' });
+  }
+
   const options = {
-    amount: amount * 100, // amount in paise
+    amount: amount * 100, // paise
     currency: 'INR',
-    receipt: `receipt_order_${Date.now()}`,
+    receipt: `receipt_${Date.now()}`,
   };
 
   try {
     const order = await razorpay.orders.create(options);
     res.status(200).json({
-  id: order.id, // Razorpay Order ID
-  amount: order.amount // Already in paise
-});
+      id: order.id,
+      amount: order.amount,
+      currency: order.currency,
+    });
   } catch (err) {
-    console.error('Razorpay Order Error:', err);
+    console.error('❌ Razorpay Order Creation Failed:', err);
     res.status(500).json({ message: 'Failed to create Razorpay order' });
   }
 });
