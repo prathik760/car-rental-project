@@ -80,7 +80,7 @@ const MyBookings = () => {
     const { id: order_id, amount } = response.data;
 
     const options = {
-      key: 'rzp_test_6rNnJqCLji7n9O',
+      key: 'rzp_test_IoTlyxsVrzo2hs',
       amount,
       currency: 'INR',
       name: 'Car Rental',
