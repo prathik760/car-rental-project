@@ -24,7 +24,7 @@ import kia from '../assets/car-images/kia.jpg'
 import mahindra from '../assets/car-images/xuv.jpg'
 import mg from '../assets/car-images/mg.png'
 import skoda from '../assets/car-images/skoda.png'
-import volkswagen from '../assets/car-images/volkswagen.jpg'
+import volkswagen from '../assets/car-images/Volkswagen.jpg'
 import bmw from '../assets/car-images/bmw.jpg'
 const cars = [
   {
