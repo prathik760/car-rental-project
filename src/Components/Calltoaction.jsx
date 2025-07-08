@@ -1,7 +1,7 @@
 import React from 'react';
 import './Calltoaction.css';
 import { FaArrowRight } from 'react-icons/fa';
-import volkswagen from '../assets/car-images/Volkswagen.jpg'
+import carImage from "../assets/car-images/Volkswagen.jpg";
 
 const CallToAction = () => {
   return (
@@ -15,7 +15,7 @@ const CallToAction = () => {
           </button>
         </div>
         <div className="cta-image">
-          <img src={volkswagen} alt="Luxury Car" />
+          <img src={carImage} alt="Luxury Car" />
         </div>
       </div>
     </section>
