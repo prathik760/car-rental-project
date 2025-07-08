@@ -10,13 +10,14 @@ import TestimonialSection from './Components/Testimonial';
 import SubscribeSection from './Components/Subcription';
 import Footer from './Components/Footer';
 import CarDetail from './CarDetails/Cardetails';
-import AvailableCars from './AvilableCars/AvailableCars';
+ 
 import MyBookings from './Bookings/Mybookings';
 
 // Admin Dashboard (Single Page with Tabs)
 import AdminDashboard from './Admin/Admin';
 import ManageCars from './Admin/Managecar';
 import Homedash from './Admin/Homedash';
+import AvailableCars from './AvailableCars/AvailableCars';
 
 const Home = () => (
   <>
