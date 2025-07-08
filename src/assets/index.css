@@ -1,0 +1,79 @@
+/* ========== Reset & Base ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+
+}
+
+html {
+  scroll-behavior: smooth;
+  
+}
+
+body {
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Remove default list and link styles */
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ========== Typography ========== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: #222;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ========== Buttons ========== */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* ========== Forms ========== */
+input, select, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 3px #007bff55;
+}
+
+/* ========== Container Utility ========== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ========== Responsive Typography ========== */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  .search-input {
+    width: 90% !important;
+  }
+}

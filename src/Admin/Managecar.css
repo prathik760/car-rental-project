@@ -1,0 +1,49 @@
+.manage-cars {
+  padding: 30px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.manage-cars h2 {
+  margin-bottom: 20px;
+}
+
+.add-car-btn {
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.edit-btn {
+  padding: 6px 10px;
+  background-color: #ffc107;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  padding: 6px 10px;
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
