@@ -1,5 +1,5 @@
 import React, { useState,useEffect} from 'react';
-import './AvailableCars.css';
+import './Availablecars.css';
 import { FaUserFriends, FaGasPump, FaCogs, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import audi from '../assets/car images/a6.jpg'

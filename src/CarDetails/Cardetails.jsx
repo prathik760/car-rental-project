@@ -234,7 +234,7 @@ const CarDetail = () => {
       const cleanedPrice = car.price.replace('$', '').replace('/day', '');
 
       const res = await axios.post(
-        'http://localhost:2000/api/bookings',
+  `${import.meta.env.VITE_API_BASE_URL}/api/bookings`,
         {
           carName: car.name,
           carImage: car.image,
