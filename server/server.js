@@ -2,10 +2,11 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+dotenv.config();
 import router from './routes/userRoutes.js';
 import bookingRoutes from './routes/bookingRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js'
-dotenv.config();
+ 
 
 const app = express();
 const PORT = process.env.PORT || 2000;
