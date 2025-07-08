@@ -66,48 +66,45 @@ const MyBookings = () => {
 
   const handlePayNow = async (booking) => {
   try {
-    const res = await axios.post(`https://car-rental-ah1c.onrender.com/api/payment/create-order`, {
-      amount: booking.price,
-    });
-
-    const { id: order_id, amount } = res.data;
-
-    if (!window.Razorpay || !order_id || !amount) {
-      toast.error('Payment configuration error');
+    if (!window.Razorpay) {
+      toast.error('Razorpay SDK not loaded');
       return;
     }
 
+    const response = await axios.post(
+      'https://car-rental-ah1c.onrender.com/api/payment/create-order',
+      { amount: booking.price },
+      { headers: { 'Content-Type': 'application/json' } }
+    );
+
+    const { id: order_id, amount } = response.data;
+
     const options = {
-      key: "rzp_test_6rNnJqCLji7n9O",
-      amount: amount,
-      currency: "INR",
-      name: "Car Rental",
-      description: `Booking: ${booking.carName}`,
+      key: 'rzp_test_6rNnJqCLji7n9O',
+      amount,
+      currency: 'INR',
+      name: 'Car Rental',
+      description: `Booking for ${booking.carName}`,
       order_id,
-      handler: function (response) {
-        console.log("✅ Payment Success Response:", response);
-        toast.success("✅ Payment successful!");
+      handler: function (res) {
+        toast.success('Payment successful!');
+        console.log('✅ Payment ID:', res.razorpay_payment_id);
+        console.log('✅ Order ID:', res.razorpay_order_id);
       },
       prefill: {
-        name: booking.user?.name || "Guest User",
-        email: booking.user?.email || "guest@example.com",
+        name: booking.user?.name || 'Guest User',
+        email: booking.user?.email || 'guest@example.com',
       },
       theme: {
-        color: "#3399cc",
-      },
-      modal: {
-        ondismiss: function () {
-          console.log("❌ Razorpay modal dismissed or payment failed.");
-          toast.error("❌ Payment cancelled or failed.");
-        },
+        color: '#3399cc',
       },
     };
 
-    const razorpay = new window.Razorpay(options);
-    razorpay.open();
-  } catch (error) {
-    console.error("❌ Payment Error:", error?.response?.data || error.message);
-    toast.error("❌ Payment failed due to server error");
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  } catch (err) {
+    console.error('❌ Payment Error:', err.response?.data || err.message);
+    toast.error('❌ Payment failed due to server error');
   }
 };
 
