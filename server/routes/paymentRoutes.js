@@ -1,29 +1,31 @@
+// routes/paymentRoutes.js
 import express from 'express';
 import Razorpay from 'razorpay';
-import dotenv from 'dotenv';
-dotenv.config();
+import crypto from 'crypto';
 
 const router = express.Router();
 
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_SECRET,
+  key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
+// Create order
 router.post('/create-order', async (req, res) => {
   const { amount } = req.body;
 
-  try {
-    const order = await razorpay.orders.create({
-      amount: amount * 100, // in paise
-      currency: 'INR',
-      receipt: `receipt_${Date.now()}`,
-    });
+  const options = {
+    amount: amount * 100, // amount in paise
+    currency: 'INR',
+    receipt: `receipt_order_${Date.now()}`,
+  };
 
-    res.status(201).json(order);
-  } catch (error) {
-    console.error('Order error:', error);
-    res.status(500).json({ message: 'Failed to create order' });
+  try {
+    const order = await razorpay.orders.create(options);
+    res.status(200).json(order);
+  } catch (err) {
+    console.error('Razorpay Order Error:', err);
+    res.status(500).json({ message: 'Failed to create Razorpay order' });
   }
 });
 
