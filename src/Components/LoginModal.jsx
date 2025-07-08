@@ -13,8 +13,8 @@ const LoginPopup = ({ onClose }) => {
     e.preventDefault();
 
    const url = isSignUp
-  ? 'http://localhost:2000/api/user/register'
-  : 'http://localhost:2000/api/user/login';
+  ? 'https://car-rental-ah1c.onrender.com/api/user/register'
+  : 'https://car-rental-ah1c.onrender.com/api/user/login';
 
     const payload = isSignUp ? { name, email, password } : { email, password };
 
