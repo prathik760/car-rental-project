@@ -65,46 +65,46 @@ const MyBookings = () => {
   };
 
   const handlePayNow = async (booking) => {
-    try {
-      const res = await axios.post(`https://car-rental-ah1c.onrender.com/api/payment/create-order`, {
-        amount: booking.price,
-      });
+  try {
+    const res = await axios.post(`https://car-rental-ah1c.onrender.com/api/payment/create-order`, {
+      amount: booking.price,
+    });
 
-      const { id: order_id } = res.data;
+    const { id: order_id, amount } = res.data;
 
-      if (!window.Razorpay) {
-        toast.error('Razorpay SDK not loaded');
-        return;
-      }
-
-      const options = {
-        key: "rzp_test_6rNnJqCLji7n9O", // ✅ Use your Razorpay test key
-        amount: booking.price * 100,
-        currency: "INR",
-        name: "Car Rental",
-        description: "Car Booking Payment",
-        order_id,
-        handler: function (response) {
-          toast.success("Payment successful!");
-          console.log("Payment ID:", response.razorpay_payment_id);
-          console.log("Order ID:", response.razorpay_order_id);
-        },
-        prefill: {
-          name: booking.user?.name || "User",
-          email: booking.user?.email || "user@example.com",
-        },
-        theme: {
-          color: "#3399cc",
-        },
-      };
-
-      const razorpay = new window.Razorpay(options);
-      razorpay.open();
-    } catch (error) {
-      toast.error("Payment failed");
-      console.error("Payment Error:", error);
+    if (!window.Razorpay) {
+      toast.error('Razorpay SDK not loaded');
+      return;
     }
-  };
+
+    const options = {
+      key: "rzp_test_6rNnJqCLji7n9O", // ✅ Use your Razorpay test key
+      amount: amount, // Already in paise
+      currency: "INR",
+      name: "Car Rental",
+      description: `Booking: ${booking.carName}`,
+      order_id,
+      handler: function (response) {
+        toast.success("Payment successful!");
+        console.log("✅ Payment ID:", response.razorpay_payment_id);
+        console.log("✅ Order ID:", response.razorpay_order_id);
+      },
+      prefill: {
+        name: booking.user?.name || "Guest User",
+        email: booking.user?.email || "guest@example.com",
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    const razorpay = new window.Razorpay(options);
+    razorpay.open();
+  } catch (error) {
+    toast.error("Payment failed");
+    console.error("❌ Payment Error:", error?.response?.data || error.message);
+  }
+};
 
   return (
     <section className="bookings-section" style={{ minHeight: 'calc(100vh - 300px)' }}>
