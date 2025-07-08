@@ -6,8 +6,8 @@ const router = express.Router();
 
 // ✅ Use test keys directly for now
 const razorpay = new Razorpay({
-  key_id: 'rzp_test_6rNnJqCLji7n9O',
-  key_secret: 'jDKaZmxoTeORHKFozvZglOtI',
+  key_id: 'rzp_test_IoTlyxsVrzo2hs',
+  key_secret: 'afLXT8Tjip8sn5RKbU1oYCF0',
 });
 
 // ✅ Create Razorpay Order
