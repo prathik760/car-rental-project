@@ -14,18 +14,18 @@ import { useAuth } from '../AuthContext/Authcontext';
 import LoginModal from '../Components/LoginModal';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import audi from '../assets/car images/a6.jpg'
-import benz from '../assets/car images/mer.png'
-import creta from '../assets/car images/creta.jpg'
-import fortuner from '../assets/car images/toyota.jpg'
-import honda from '../assets/car images/city.jpg'
-import jeep from '../assets/car images/jeep.jpg'
-import kia from '../assets/car images/kia.jpg'
-import mahindra from '../assets/car images/xuv.jpg'
-import mg from '../assets/car images/mg.png'
-import skoda from '../assets/car images/skoda.png'
-import volkswagen from '../assets/car images/volkswagen.jpg'
-import bmw from '../assets/car images/bmw.jpg'
+import audi from '../assets/car-images/a6.jpg'
+import benz from '../assets/car-images/mer.png'
+import creta from '../assets/car-images/creta.jpg'
+import fortuner from '../assets/car-images/toyota.jpg'
+import honda from '../assets/car-images/city.jpg'
+import jeep from '../assets/car-images/jeep.jpg'
+import kia from '../assets/car-images/kia.jpg'
+import mahindra from '../assets/car-images/xuv.jpg'
+import mg from '../assets/car-images/mg.png'
+import skoda from '../assets/car-images/skoda.png'
+import volkswagen from '../assets/car-images/volkswagen.jpg'
+import bmw from '../assets/car-images/bmw.jpg'
 const cars = [
   {
     name: 'Audi A6',
@@ -234,7 +234,7 @@ const CarDetail = () => {
       const cleanedPrice = car.price.replace('$', '').replace('/day', '');
 
       const res = await axios.post(
-        'http://localhost:2000/api/bookings',
+  `${import.meta.env.VITE_API_BASE_URL}/api/bookings`,
         {
           carName: car.name,
           carImage: car.image,

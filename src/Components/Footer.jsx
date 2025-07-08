@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { FaInstagram, FaFacebookF,FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
-import logo from '../assets/car images/logo2.png'
+import logo from '../assets/car-images/logo2.png'
 const Footer = () => {
   return (
     <footer className="footer">

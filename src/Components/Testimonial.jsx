@@ -1,8 +1,8 @@
 import React from 'react';
 import './Testimonial.css';
-import ravi from '../assets/car images/ravi.png'
-import anjali from '../assets/car images/anjali.png'
-import vikram from '../assets/car images/vikram.png'
+import ravi from '../assets/car-images/ravi.png'
+import anjali from '../assets/car-images/anjali.png'
+import vikram from '../assets/car-images/vikram.png'
 const testimonials = [
   {
     name: 'Ravi Sharma',
